@@ -1,0 +1,5 @@
+discord
+discord.ext
+dotenv
+py3dns
+validate_email
