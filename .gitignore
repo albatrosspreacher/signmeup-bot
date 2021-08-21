@@ -1,0 +1,5 @@
+#virtual env data
+.venv/
+
+#passwords
+secret.json
