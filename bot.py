@@ -29,6 +29,7 @@ async def smu(ctx, arg):
         await ctx.send("Thank you for signing up, " + arg) # if email is valid
         # add code for storing in db 
         time.sleep(2)
+        await purge(ctx)
     else: 
         await ctx.send("Please enter a valid email address") # if email is invalid
         time.sleep(2)
