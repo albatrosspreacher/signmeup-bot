@@ -48,9 +48,6 @@ def broadcastEmail(serverID, templateName): # params needed to read template fro
         print(response.headers)
 
 
-
-
-
 """ message = Mail(
     from_email='41ifk.test@inbox.testmail.app',
     to_emails='nandiniproothi@pm.me',
