@@ -6,7 +6,7 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Dashboard</title>
-    <link rel="stylesheet" href="style.css" />
+    <link type="text/css" href="{{ url_for('static', filename='styles/dashboard-index.css') }}" rel="stylesheet" />
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@100;300;400;500;600&display=swap"
@@ -37,20 +37,20 @@
         <h2>Name</h2>
         <h3>File</h3>
         <input type="text" placeholder="Enter Name">
-        <button type="button" class="upload"><img src="images/3671892_upload_icon 1.png">   Upload</button>
+        <button type="button" class="upload"><img src="{{url_for('static', filename='resources/uploadIcon.png')}}">   Upload</button>
     </div>
     <div class="addrow">
-        <img src="images/134224_add_plus_new_icon 1.png">
+        <img src="{{url_for('static', filename='resources/plusIcon.png')}}">
     </div>
     <div class="lt">
         <h2>File</h2>
         <div class="listboxmain">
         </div>
         <h3>Select File</h3>
-        <img src="images/Chevron.png">
+        <img src="{{url_for('static', filename='resources/upArrowIcon.png')}}">
     </div>
     <button type="button">Broadcast</button>
-    <script src="main.js"></script>
+    <script src="{{ url_for('static', filename='index.js') }}"></script>
     
 </body>
 
