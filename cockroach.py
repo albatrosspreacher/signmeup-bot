@@ -42,12 +42,9 @@ def checkConnection():
         print("Failed to complete request", error)
         return False """
 
-def closeConnection():
-    conn = checkConnection()
-    cur = conn.cursor()
+def closeConnection(conn):
     #closing database connection.
     if conn:
-        cur.close()
         conn.close()
         print("PostgreSQL connection is closed")
 
@@ -59,7 +56,8 @@ def createTableSubscribers(sid):
         id BIGSERIAL NOT NULL PRIMARY KEY, 
         email VARCHAR(150) NOT NULL);''')
     conn.commit()
-    closeConnection()
+    closeConnection(conn)
+
 
 def createTableTemplates(sid):
     conn = checkConnection()
@@ -69,7 +67,8 @@ def createTableTemplates(sid):
         name VARCHAR(50) NOT NULL, 
         link VARCHAR(50) NOT NULL);''')
     conn.commit()
-    closeConnection()
+    closeConnection(conn)
+
 
 def readDataTemplates(sid):
     conn = checkConnection()
@@ -83,7 +82,8 @@ def readDataTemplates(sid):
         print (x)
         return x
     conn.commit()
-    closeConnection()
+    closeConnection(conn)
+
 
 def readDataSubscribers(sid):
     conn = checkConnection()
@@ -97,7 +97,7 @@ def readDataSubscribers(sid):
         print (x)
         return x
     conn.commit()
-    closeConnection()
+    closeConnection(conn)
 
 #for testing
 if __name__ == '__main__':
