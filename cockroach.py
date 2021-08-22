@@ -4,7 +4,7 @@ from argparse import ArgumentParser, RawTextHelpFormatter
 from psycopg2.errors import SerializationFailure
 load_dotenv()
 
-#loading password
+""" #loading password
 import json
 with open("secret.json") as f:
     secret = json.load(f)
@@ -23,9 +23,9 @@ def checkConnection():
 
     except (Exception, psycopg2.Error) as error:
         print("Failed to complete request", error)
-        return False
+        return False """
 
-""" # with env file
+# with env file
 def checkConnection():
     #connection with database
     try:
@@ -37,10 +37,9 @@ def checkConnection():
         cur = conn.cursor()
         print("Connected to SMU DB")
         return conn
-
     except (Exception, psycopg2.Error) as error:
         print("Failed to complete request", error)
-        return False """
+        return False
 
 def closeConnection(conn):
     #closing database connection.
@@ -52,7 +51,7 @@ def closeConnection(conn):
 def createTableSubscribers(sid):
     conn = checkConnection()
     cur = conn.cursor()
-    cur.execute('''CREATE TABLE _''' + str(sid) + '''_subscribers(
+    cur.execute('''CREATE TABLE IF NOT EXISTS _''' + str(sid) + '''_subscribers(
         id BIGSERIAL NOT NULL PRIMARY KEY, 
         email VARCHAR(150) NOT NULL);''')
     conn.commit()
@@ -62,7 +61,7 @@ def createTableSubscribers(sid):
 def createTableTemplates(sid):
     conn = checkConnection()
     cur = conn.cursor()
-    cur.execute('''CREATE TABLE _''' + str(sid) + '''_templates(
+    cur.execute('''CREATE TABLE IF NOT EXISTS _''' + str(sid) + '''_templates(
         id BIGSERIAL NOT NULL PRIMARY KEY, 
         name VARCHAR(50) NOT NULL, 
         link VARCHAR(50) NOT NULL);''')
@@ -117,10 +116,10 @@ def readDataSubscribers(sid):
 
 #for testing
 if __name__ == '__main__':
-    checkConnection()
+    """ checkConnection()
     createTableTemplates(50)
     createTableSubscribers(50)
     addDataTemplates(50, 'dec', 'blue')
     addDataSubscribers(50, 'g@gmail.com')
     readDataTemplates(52)
-    readDataSubscribers(52)
+    readDataSubscribers(52) """
