@@ -1,57 +1,100 @@
 <!DOCTYPE html>
 <html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>↓ dashboard ↓</title>
+    <link
+      rel="shortcut icon"
+      href="https://img.icons8.com/ios/64/000000/email-open.png"
+      title="Newsletter Icon by Icons8"
+    />
+    <meta charset="utf-8" />
+    <meta
+      name="description"
+      content="A Discord bot that can help you manage your guild members' newsletters subscription!"
+    />
+    <meta name="keywords" content="Discord, Python, Bot, Newsletter" />
+    <meta name="author" content="Bhavya, Gauri. Nandini" />
+    <meta
+      name="viewport"
+      content="width=device-width, initial-scale=1, shrink-to-fit=no"
+    />
+    <meta http-equiv="x-ua-compatible" content="ie=edge" />
+    <meta
+      property="og:image:url"
+      content="https://img.icons8.com/ios/64/000000/email-open.png"
+    />
+    <meta property="og:image:width" content="300" />
+    <meta property="og:image:alt" content="Radio icon 2 by Icons8" />
+    <meta property="og:title" content="Ya Basic" />
+    <meta
+      property="og:description"
+      content="A Discord bot that can help you manage your guild members' newsletters subscription!"
+    />
+    <meta name="twitter:card" content="summary" />
+    <meta name="twitter:creator" content="@" />
+    <meta
+      name="twitter:image"
+      content="https://img.icons8.com/ios/64/000000/email-open.png"
+    />
+    <meta name="twitter:image:width" content="300" />
+    <meta name="twitter:image:alt" content="Newsletter Icon by Icons8" />
+    <meta
+      name="twitter:description"
+      content="A Discord bot that can help you manage your guild members' newsletters subscription!"
+    />
+    <link
+      type="text/css"
+      href="{{ url_for('static', filename='styles/dashboard-index.css') }}"
+      rel="stylesheet"
+    />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Montserrat:wght@100;300;400;500;600&display=swap"
+      rel="stylesheet"
+    />
+  </head>
 
-<head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Dashboard</title>
-    <link type="text/css" href="{{ url_for('static', filename='styles/dashboard-index.css') }}" rel="stylesheet" />
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@100;300;400;500;600&display=swap"
-        rel="stylesheet">
-</head>
-
-<body>
-    <div class=nav-bar>
-        <nav>
-            <div class="logo">
-                <img src="https://img.icons8.com/ios/100/000000/email-open.png" />
-            </div>
-            <div class="add">
-                <a href="#">Add to Discord</a>
-            </div>
-            <div class="lo">
-                <a href="#">Log Out</a>
-            </div>
-
-        </nav>
+  <body>
+    <div class="nav-bar">
+      <nav>
+        <div class="logo">
+          <img src="https://img.icons8.com/ios/100/000000/email-open.png" />
+        </div>
+        <div class="add">
+          <a href="#">Add to Discord</a>
+        </div>
+        <div class="lo">
+          <a href="#">Log Out</a>
+        </div>
+      </nav>
     </div>
     <div class="header">
-        <h1>My Dashboard</h1>
+      <h1>My Dashboard</h1>
     </div>
     <div class="uploads">
-        <div class="titlerow">
-        </div>
-        <h2>Name</h2>
-        <h3>File</h3>
-        <input type="text" placeholder="Enter Name">
-        <button type="button" class="upload"><img src="{{url_for('static', filename='resources/uploadIcon.png')}}">   Upload</button>
+      <div class="titlerow"></div>
+      <h2>Name</h2>
+      <h3>File</h3>
+      <input type="text" placeholder="Enter Name" />
+      <button type="button" class="upload">
+        <img src="{{url_for('static', filename='resources/uploadIcon.png')}}" />
+        Upload
+      </button>
     </div>
     <div class="addrow">
-        <img src="{{url_for('static', filename='resources/plusIcon.png')}}">
+      <img src="{{url_for('static', filename='resources/plusIcon.png')}}" />
     </div>
     <div class="lt">
-        <h2>File</h2>
-        <div class="listboxmain">
-        </div>
-        <h3>Select File</h3>
-        <img src="{{url_for('static', filename='resources/upArrowIcon.png')}}">
+      <h2>File</h2>
+      <div class="listboxmain"></div>
+      <h3>Select File</h3>
+      <img src="{{url_for('static', filename='resources/upArrowIcon.png')}}" />
     </div>
     <button type="button">Broadcast</button>
     <script src="{{ url_for('static', filename='index.js') }}"></script>
-    
-</body>
-
+  </body>
 </html>
