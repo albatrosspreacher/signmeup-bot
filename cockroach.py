@@ -69,6 +69,22 @@ def createTableTemplates(sid):
     conn.commit()
     closeConnection(conn)
 
+def addDataTemplates(sid, name, link):
+    conn = checkConnection()
+    cur = conn.cursor()
+    cur.execute('''INSERT INTO _''' + str(sid) + '''_templates(name, link) 
+    VALUES('{0}','{1}');'''.format(name, link))
+    conn.commit()
+    closeConnection(conn)
+
+def addDataSubscribers(sid, email):
+    conn = checkConnection()
+    cur = conn.cursor()
+    cur.execute('''INSERT INTO _''' + str(sid) + '''_subscribers(email) 
+    VALUES('{0}');'''.format(email))
+    conn.commit()
+    closeConnection(conn)
+
 
 def readDataTemplates(sid):
     conn = checkConnection()
@@ -102,8 +118,9 @@ def readDataSubscribers(sid):
 #for testing
 if __name__ == '__main__':
     checkConnection()
-    closeConnection()
     createTableTemplates(50)
     createTableSubscribers(50)
+    addDataTemplates(50, 'dec', 'blue')
+    addDataSubscribers(50, 'g@gmail.com')
     readDataTemplates(52)
     readDataSubscribers(52)
