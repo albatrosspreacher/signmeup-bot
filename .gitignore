@@ -3,3 +3,8 @@
 
 #passwords
 secret.json
+.env
+
+#cache
+.DS_Store
+__pycache__
