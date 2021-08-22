@@ -6,7 +6,7 @@ function addItem(){
             <input type="text" class="form-control" placeholder="Template Title">
             </div>
             <div class="col">
-            <button type="button" class="btn btn-primary">Upload File</button>
+            <input type="file" class="btn btn-primary">Upload File</button>
             </div>
     </div>
     `;
