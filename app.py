@@ -12,7 +12,7 @@ def dashboard():
   
 @app.route('/invite')
 def invite():
-  return redirect("https://discord.com/oauth2/authorize?client_id=877994181623160882&permissions=2416125952&scope=bot", code=200)
+  return redirect("https://discord.com/oauth2/authorize?client_id=877994181623160882&permissions=2416125952&scope=bot", code=302)
 
 if __name__ == '__main__':
     app.run(debug=True)
