@@ -4,7 +4,9 @@ nav {
 nav ul a {
   color: #000000;
 }
-
 .row {
   padding: 10px;
+}
+h2 {
+  padding-top: 10px;
 }
