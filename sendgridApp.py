@@ -32,7 +32,7 @@ def broadcastEmail(serverID, templateName): # params needed to read template fro
             }
         ],
         "from": {
-            "email": "41ifk.test@inbox.testmail.app",
+            "email": "no-reply@signmeup.tech",
             "name": "Sign Me Up Bot"
         },
         "content": [
@@ -47,6 +47,7 @@ def broadcastEmail(serverID, templateName): # params needed to read template fro
         print(response.body)
         print(response.headers)
 
+broadcastEmail("123", "123") # test the function by calling it
 
 """ message = Mail(
     from_email='41ifk.test@inbox.testmail.app',
