@@ -1,4 +1,5 @@
 import discord, os, re, time
+import cockroachScript as cs
 from dotenv import load_dotenv
 load_dotenv()
 from discord.ext import commands
@@ -15,6 +16,10 @@ bot.remove_command('help')
     else:   
         return False """
 
+async def getguild(ctx):
+    id = ctx.message.guild.id
+    return id
+
 @bot.command()
 async def ping(ctx):
     await ctx.send('My ping is {0}'.format(round(bot.latency, 1))) # return bot latency
@@ -25,9 +30,13 @@ async def purge(ctx):
 
 @bot.command()
 async def smu(ctx, arg):
+    guildID = await getguild(ctx)
     if validate_email(arg,verify=True):
         await ctx.send("Thank you for signing up, " + arg) # if email is valid
         # add code for storing in db 
+        cs.createTableSubscribers(guildID) # creates new table for guild if not available already
+        cs.createTableTemplates(guildID)
+        cs.addDataSubscribers(guildID, arg) # adds user to guild's table
         time.sleep(2)
         await purge(ctx)
     else: 

@@ -3,3 +3,4 @@ discord.ext
 dotenv
 py3dns
 validate_email
+psycopg2
