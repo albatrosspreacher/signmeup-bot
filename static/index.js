@@ -12,3 +12,14 @@ function addItem(){
     `;
     document.getElementById('templateTable').innerHTML+=html;
 }
+
+$(function() {
+    $('#bemail').on('click', function(e) {
+      e.preventDefault()
+      $.getJSON('/send_email',
+          function(data) {
+        //do nothing
+      });
+      return false;
+    });
+});

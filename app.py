@@ -2,6 +2,7 @@ from requests_oauthlib import OAuth2Session
 import getpass
 from flask import Flask, request, redirect, session, render_template
 import os
+import cockroachScripts as cs, sendgridScripts as sg
 
 # Settings for your app
 base_discord_api_url = 'https://discordapp.com/api'
@@ -56,6 +57,18 @@ def dashboard():
 @app.route('/invite')
 def invite():
   return redirect("https://discord.com/oauth2/authorize?client_id=877994181623160882&permissions=2416125952&scope=bot", code=302)
+
+@app.route('/send_email')
+def send_email():
+    arr = []
+    name = []
+    res = cs.readDataSubscribers(762056383502745631)
+    j = 0
+    for i in res:
+        arr.insert(j, i[1])
+        j = j + 1
+    sg.broadcastEmail(762056383502745631, "templateName", arr, name)
+    return "hello"
 
 if __name__ == '__main__':
     app.run(debug=True)
